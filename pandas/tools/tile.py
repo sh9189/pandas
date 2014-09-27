@@ -150,6 +150,7 @@ def qcut(x, q, labels=None, retbins=False, precision=3):
     else:
         quantiles = q
     bins = algos.quantile(x, quantiles)
+    bins = np.unique(bins)
     res = _bins_to_cuts(x, bins, labels=labels, retbins=retbins,precision=precision,
                         include_lowest=True)
     if isinstance(x, Series):
